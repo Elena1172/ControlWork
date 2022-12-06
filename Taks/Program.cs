@@ -19,9 +19,31 @@ void PrintArray(string[] text)
     }
     Console.Write("]");
 }
+string[] FillArray2(string[] array)
+{
+    int i = 0;
+    int n = 0;
+    foreach (string item in array)
+    {
+        if (item.Length < 4) n++;
+    }
+    string[] newarray = new string[n];
+    foreach (string item in array)
+    {
+        if (item.Length < 4)
+        {
+            newarray[i] = item;
+            i++;
+        }
+
+    }
+    return newarray;
+}
 Console.Write("Введите количество элементов массива  ");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите элементы массива с клавиатуры, разделяя их клавишей 'enter'");
 string[] array = FillArray(n);
 PrintArray(array);
 Console.Write(" -> ");
+string[] array2 = FillArray2(array);
+PrintArray(array2);
